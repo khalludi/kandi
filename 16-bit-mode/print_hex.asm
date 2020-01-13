@@ -40,20 +40,17 @@ end:
 
   mov bx, HEX_OUT         ; Move string to bx
   call print_string       ; Print string
-  
+
+  mov ah, 0x0e            ; Should print 3 and it
+  mov al, 0x33            ; does.
+  int 0x10
+
   popa                    ; Pop and return
   ret
 
 add7:
   add cl, 0x07            ; Add offset of 7 for
   jmp return_label        ; letters
-
-print_char:
-  mov ah, 0x0e            ; Test function to print
-  mov al, cl              ; individual characters
-  add al, 0x35
-  int 0x10
-  ret
 
 ; Include print functions
 %include "print_string.asm"
