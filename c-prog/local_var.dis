@@ -1,7 +1,0 @@
-00000000  55                push ebp
-00000001  48                dec eax
-00000002  89E5              mov ebp,esp
-00000004  C745FCBABA0000    mov dword [ebp-0x4],0xbaba
-0000000B  8B45FC            mov eax,[ebp-0x4]
-0000000E  5D                pop ebp
-0000000F  C3                ret
