@@ -33,7 +33,7 @@ kernel.bin: kernel/kernel_entry.o ${OBJ}
 	nasm $< -f elf -o $@
 
 %.bin : %.asm
-	nasm $< -f bin -I '../16-bit-mode/' -I '../32-bit-mode/' -o $@
+	nasm $< -f bin -I 'boot/' -o $@
 
 clean:
 	rm -rf *.bin *.dis *.o os-image *.map

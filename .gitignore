@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 *.bin
+os-image
 
 # Object files
 *.o
