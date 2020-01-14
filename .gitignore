@@ -1,7 +1,10 @@
 # Prerequisites
 *.d
+
+# Custom
 *.bin
 os-image
+*.swp
 
 # Object files
 *.o
