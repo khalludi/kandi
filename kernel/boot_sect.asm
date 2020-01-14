@@ -17,11 +17,11 @@ call switch_to_pm     ; Switch to protected mode, from which we will
 
 jmp $
 
-%include "../16-bit-mode/print_string.asm"
-%include "../16-bit-mode/disk_load.asm"
-%include "../32-bit-mode/gdt.asm"
-%include "../32-bit-mode/print_string_pm.asm"
-%include "../32-bit-mode/switch_to_pm.asm"
+%include "print_string.asm"
+%include "disk_load.asm"
+%include "gdt.asm"
+%include "print_string_pm.asm"
+%include "switch_to_pm.asm"
 
 [bits 16]
 
