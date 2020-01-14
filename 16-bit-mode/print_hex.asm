@@ -2,8 +2,8 @@
 print_hex:
   pusha
 
-  mov bp, 0x8000          ; Setup stack
-  mov sp, bp
+  ;mov bp, 0x8000          ; Setup stack
+  ;mov sp, bp
 
   mov bl, 0x00            ; Set counter
 
@@ -40,10 +40,6 @@ end:
 
   mov bx, HEX_OUT         ; Move string to bx
   call print_string       ; Print string
-
-  mov ah, 0x0e            ; Should print 3 and it
-  mov al, 0x33            ; does.
-  int 0x10
 
   popa                    ; Pop and return
   ret

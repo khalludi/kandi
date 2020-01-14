@@ -15,10 +15,6 @@ call disk_load
 mov dx, [0x9000]        ; Print out first word
 call print_hex
 
-mov ah, 0x0e            ; Should print 6, but it does
-mov al, 0x36            ; not.
-int 0x10
-
 mov dx, [0x9000 + 512]  ; Print word in second sector
 call print_hex
 
