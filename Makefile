@@ -1,6 +1,7 @@
 # Automatically generate lists of sources using wildcards
 C_SOURCES = $(wildcard kernel/*.c drivers/*.c)
 HEADERS = $(wildcard kernel/*.h drivers/*.h)
+LIBS = -Ikernel/ -Idrivers/
 
 # TODO: Make sources dep on all header files.
 
@@ -26,7 +27,7 @@ kernel.bin: kernel/kernel_entry.o ${OBJ}
 # Generic rule for compiling C code to an object file
 # For simplicity, the Cfiles depnd on all header files.
 %.o : %.c ${HEADERS}
-	i386-elf-gcc -ffreestanding -c $< -o $@
+	i386-elf-gcc -ffreestanding $(LIBS) -c $< -o $@
 
 # Assemble the kernel entry object file.
 %.o : %.asm

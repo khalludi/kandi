@@ -7,3 +7,12 @@
 // Screen device I/O ports
 #define REG_SCREEN_CTRL 0x3D4
 #define REG_SCREEN_DATA 0x3D5
+
+// Function Prototype
+int get_screen_offset(int row, int col);
+int get_cursor();
+void set_cursor(int offset);
+void print_at(char* message, int col, int row);
+void print(char* message);
+void clear_screen();
+int handle_scrolling(int cursor_offset);
