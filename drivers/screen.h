@@ -10,7 +10,7 @@
 
 // Function Prototype
 int get_screen_offset(int row, int col);
-int get_cursor();
+unsigned short get_cursor();
 void set_cursor(int offset);
 void print_at(char* message, int col, int row);
 void print(char* message);

@@ -11,7 +11,7 @@ void print_char (char character, int col, int row, char attribute_byte) {
   }
 
   /* Get the video memory offset for the screen location */
-  int offset;
+  unsigned short offset;
   /* If col and row are non-negative, use them for offset. */
   if (col >= 0 && row >= 0) {
     offset = get_screen_offset(col, row);
@@ -38,7 +38,7 @@ void print_char (char character, int col, int row, char attribute_byte) {
   offset += 2;
   // Make scrolling adjustment, for when we reach the bottom
   // of the screen.
-  offset = handle_scrolling(offset);
+  //offset = handle_scrolling(offset);
   // Update the cursor position on the screen device.
   set_cursor(offset);
 }
@@ -47,7 +47,7 @@ int get_screen_offset(int row, int col) {
   return (row * MAX_COLS + col) * 2;
 }
 
-int get_cursor() {
+unsigned short get_cursor() {
   // The device uses its control register as an index
   // to select its internal registers, of which we are
   // interested in:
@@ -56,9 +56,9 @@ int get_cursor() {
   // Once the internal register has been selected, we may read or
   // write a byte on the data register.
   port_byte_out(REG_SCREEN_CTRL, 14);
-  int offset = port_byte_in(REG_SCREEN_DATA) << 8;
+  unsigned short offset = port_byte_in(REG_SCREEN_DATA) << 8;
   port_byte_out(REG_SCREEN_CTRL, 15);
-  offset += port_byte_in(REG_SCREEN_DATA);
+  offset += port_byte_in(REG_SCREEN_DATA) & 0xff;
   // Since the cursor offset reported by the VGA hardware is the
   // number of characters, we multiply by two to convert it to
   // a character cell offset.
@@ -70,9 +70,9 @@ void set_cursor(int offset) {
   // This is similar to get_cursor, only now we write
   // bytes to those internal device registers.
   port_byte_out(REG_SCREEN_CTRL, 14);
-  port_byte_out(REG_SCREEN_DATA, offset >> 8);
+  port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset >> 8));
   port_byte_out(REG_SCREEN_CTRL, 15);
-  port_byte_out(REG_SCREEN_DATA, offset & 0xff);
+  port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset & 0xff));
 }
 
 void print_at(char* message, int col, int row) {

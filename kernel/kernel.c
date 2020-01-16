@@ -10,5 +10,5 @@ void main() {
   
   // Test print a message
   print_char('A', 3, 3, 0);
-  print_char('A', -1, -1, 0);
+  print_char('B', -1, -1, 0);
 }
