@@ -6,6 +6,4 @@ My first operating system.
  * qemu
 
 ## Useful commands
-To compile to a binary, run `nasm boot-sect.asm -f bin -o boot-sect.bin`
-
-To run the binary, run `qemu-system-x86_64 boot-sect.bin`
+Compile and run the operating system: `make run`
