@@ -1,4 +1,5 @@
 #include "screen.h"
+#include "util.h"
 
 /* Print a char on the screen at col, row, or at cursor position */
 void print_char (char character, int col, int row, char attribute_byte) {
@@ -38,7 +39,7 @@ void print_char (char character, int col, int row, char attribute_byte) {
   offset += 2;
   // Make scrolling adjustment, for when we reach the bottom
   // of the screen.
-  //offset = handle_scrolling(offset);
+  offset = handle_scrolling(offset);
   // Update the cursor position on the screen device.
   set_cursor(offset);
 }

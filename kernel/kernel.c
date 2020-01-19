@@ -9,6 +9,12 @@ void main() {
   *video_memory = 'X';
   
   // Test print a message
-  print_char('A', 3, 3, 0);
-  print_char('B', -1, -1, 0);
+  print("Hello");
+  print(", World!");
+
+  // Test scrolling
+  print_char('A', 23, 1, 0);
+  for(int i = 0; i < 7; i++) {
+    print("Goodbye, Test!");
+  }
 }

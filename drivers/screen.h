@@ -12,7 +12,7 @@
 int get_screen_offset(int row, int col);
 unsigned short get_cursor();
 void set_cursor(int offset);
-void print_at(char* message, int col, int row);
+void print_char (char character, int col, int row, char attribute_byte);
 void print(char* message);
 void clear_screen();
 int handle_scrolling(int cursor_offset);
