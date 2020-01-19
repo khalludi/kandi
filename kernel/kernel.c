@@ -13,8 +13,13 @@ void main() {
   print(", World!");
 
   // Test scrolling
-  print_char('A', 23, 1, 0);
-  for(int i = 0; i < 7; i++) {
+  print_char('A', 23, 0, 0);
+  for(int i = 0; i < 11; i++) {
     print("Goodbye, Test!");
   }
+  for (int i = 0; i < 4; i++) {
+    print_char('X', -1, -1, 0);
+  }
+  print_char('K', -1, -1, 0);
+  print("A new line! WOW :D");
 }

@@ -118,14 +118,14 @@ int handle_scrolling(int cursor_offset) {
   /* Shuffle the rows back one. */
   int i;
   for (i=1; i<MAX_ROWS; i++) {
-    memory_copy((char *) (get_screen_offset(0,i) + VIDEO_ADDRESS),
-                (char *) (get_screen_offset(0,i-1) + VIDEO_ADDRESS),
+    memory_copy((char *) (get_screen_offset(i,0) + VIDEO_ADDRESS),
+                (char *) (get_screen_offset(i-1,0) + VIDEO_ADDRESS),
                 MAX_COLS*2
     );
   }
 
   /* Blank the last line by setting all bytes to 0 */
-  char* last_line = (char *) (get_screen_offset(0,MAX_ROWS-1) + VIDEO_ADDRESS);
+  char* last_line = (char *) (get_screen_offset(MAX_ROWS-1,0) + VIDEO_ADDRESS);
   for (i=0; i< MAX_COLS*2; i++) {
     last_line[i] = 0;
   }
