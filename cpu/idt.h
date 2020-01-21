@@ -1,6 +1,9 @@
 #ifndef IDT_H
 #define IDT_H
 
+/* Segment selectors */
+#define KERNEL_CS 0x08
+
 /* Interrupt gate */
 typedef struct {
   unsigned short low_offset; /* Lower 16 bits of handler function address */
